@@ -2,8 +2,6 @@ from django.shortcuts import render,redirect
 
 # Create your views here.
 subject=[]
-
-
 def index(request):
     if request.method=='POST': 
         l=len(subject)
@@ -15,10 +13,13 @@ def todo_update(request,slno):
     for i in subject:
         if i['slno']==slno:
             sub=i['sub']
-            if request.method=='POST':
-                todo_sub=request.POST['todo']
-                for i in subject:
-                    if i['slno']==slno:
-                        i['sub']=todo_sub
-                    return redirect(index)
-        return render(request,'todo_update.html',{'sub':sub,'slno':slno})
+            # print(sub)
+    if request.method=='POST':
+        todo_sub=request.POST['todo']
+        print(todo_sub)
+        for i in subject:
+            if i['slno']==slno:
+                i['sub']=todo_sub
+                print(True)
+                return redirect(index)
+    return render(request,'todo_update.html',{'sub':sub,'slno':slno})

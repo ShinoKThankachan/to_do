@@ -6,8 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="../todo_update/{{i.slno}}" method="POST"></form>
-    <input type="text" name="todo" id="" value="{{i.sub}}" placeholder="Enter your content">
+    <form action="../todo_update/{{slno}}" method="POST">
+        {% csrf_token %}
+    <input type="text" name="todo" id="" value="{{sub}}" placeholder="Enter your content">
     <button value="submit">Update</button>
+    </form>
 </body>
 </html>
