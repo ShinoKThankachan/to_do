@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
 </head>
 <body>
-    {{subjects}}
+    
     <form action="../" method="POST">
         {% csrf_token %}
     <div class="main">
@@ -22,6 +22,7 @@
             <div class="b1">sl.no:{{i.slno}}</div>
             <div class="b2">sub:{{i.sub}}</div>
             <div class="b3"><a href="../todo_update/{{i.slno}}">update</a></div>
+            <div class="b4"><a href="../todo_delete/{{i.slno}}">Delete</a></div>
             
         </div>
         {% endfor %}
